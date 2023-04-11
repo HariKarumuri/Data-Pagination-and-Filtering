@@ -1,13 +1,4 @@
-/*
-Treehouse Techdegree:
-FSJS Project 2 - Data Pagination and Filtering
-*/
 
-/**
- * Create showPage function which will display students on the page.
- * @param {list} will store array data from the students data.js
- * @param {page} will display the current page.
- */
 
 function showPage(list, page) {
    const startIndex = (page * 9) - 9;
@@ -24,7 +15,10 @@ function showPage(list, page) {
             <span class="email">${list[i].email}</span>
             </div>
             <div class="joined-details">
-            <span class="date">Joined ${list[i].registered.date}</span>
+            <span class="date">Posted ${list[i].registered.date}</span>
+            <div class="joined-details">
+            <span class="email">Contact for More</span>
+
             </div>
          </li>
          `;
@@ -33,12 +27,6 @@ function showPage(list, page) {
    }
  }
 
-/**
- * Create a function for pagination. 
- * The number in the pagination should correspond to the number of elements on the page.
- * OnClick to the pagination will set the .active class and will display the elements to that page.
- * @param {list} students array list which is divided by the number of students per page to display the page number.
- */
 
 function addPagination(list) {
    const numOfPages = Math.ceil(list.length / 9);
@@ -65,10 +53,6 @@ function addPagination(list) {
    });
  }
 
-/**
- * Adding Search Bar
- * Handling click and keyup events
- */
 function addSearchBar() {
    const header = document.querySelector('.header');
 
@@ -95,11 +79,6 @@ function addSearchBar() {
    });
 }
 
-/**
- * Search function
- * Filter .student-list and pagination based on search input
- * @param {list} returns the data of students 
- */
 function searchFunc(list) {
    const studentList = document.querySelector('.student-list');
    const input = document.querySelector('.student-search input').value.toLowerCase();
@@ -120,7 +99,7 @@ function searchFunc(list) {
 }
 
 
-// Call functions
+
 showPage(data, 1);
 addPagination(data);
 addSearchBar();
